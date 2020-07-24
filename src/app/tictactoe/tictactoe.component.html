@@ -1,0 +1,31 @@
+<div class="players" *ngIf="players.length">
+  <button class="btn" [ngClass]="{ activeplayer: activeply }">
+    <span>X</span> {{ players[0].name }}
+  </button>
+  <button class="btn" [ngClass]="{ activeplayer: !activeply }">
+    <span>O</span> {{ players[1].name }}
+  </button>
+</div>
+<div class="game--container">
+  <div
+    class="cell"
+    *ngFor="let cell of cells; let i = index"
+    (click)="handelCellClick(i)"
+  >
+    {{ cell }}
+  </div>
+</div>
+
+<div class="text-center my-3">
+  <button class="btn btn-danger" (click)="resetGame()">reset</button>
+</div>
+
+<div class="text-center my-3">
+  <button
+    *ngIf="!players.length"
+    class="btn btn-warning"
+    routerLink="/create-player"
+  >
+    register players
+  </button>
+</div>

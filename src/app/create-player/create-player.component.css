@@ -1,0 +1,25 @@
+form {
+  background-color: #eeeeee;
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.link-to-player-board {
+  background-color: #eeeeee;
+  padding: 10px 15px;
+}
+
+.player-added {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  background-color: rgb(136, 136, 136);
+}
+
+.player-added p {
+  padding: 10px;
+  margin-bottom: 0px;
+  color: white;
+}

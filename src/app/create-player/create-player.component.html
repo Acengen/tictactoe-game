@@ -1,0 +1,33 @@
+<div class="player-added">
+  <span style="font-weight: bold; padding: 10px;">PLAYERS:</span>
+  <p *ngFor="let player of players">{{ player.name }}</p>
+</div>
+<div class="text-center">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <p class="text-center">Registar/Create player</p>
+    <input
+      class="form-control"
+      type="text"
+      name="candidate"
+      ngModel
+      required
+      placeholder="Enter your name"
+    />
+    <div class="my-3">
+      <button class="btn btn-primary" type="button" (click)="reqister()">
+        Register Player
+      </button>
+      <button *ngIf="plyRegist" class="btn btn-danger" type="submit">
+        Create Player
+      </button>
+    </div>
+  </form>
+</div>
+<div class="text-center">
+  <a
+    *ngIf="players.length >= 2"
+    class="link-to-player-board"
+    routerLink="/player-list"
+    >go to player board <i class="fa fa-chevron-right"></i
+  ></a>
+</div>

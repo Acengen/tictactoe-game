@@ -1,0 +1,44 @@
+<a
+  *ngIf="errorMessage"
+  routerLink="/create-player"
+  class="errorMsgLink text-center bg-warning my-3"
+  ><i class="fa fa-warning"></i> {{ errorMessage }}</a
+>
+<div class="text-center my-3">
+  <button
+    [ngStyle]="{ cursor: errorMessage ? 'not-allowed' : 'pointer' }"
+    class="btn btn-success"
+    (click)="addBoard()"
+    [disabled]="playersAdd.length <= 1 || errorMessage"
+  >
+    Add Board
+  </button>
+</div>
+
+<table class="table" *ngIf="board.length">
+  <thead>
+    <tr>
+      <th scope="col">Player added to the game board</th>
+      <th scope="col">Players</th>
+      <th scope="col">id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pl of playersAdd; let i = index">
+      <td>#</td>
+      <td>{{ pl.name }}</td>
+      <td>#{{ pl.id }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-center my-3">
+  <button
+    [ngStyle]="{ cursor: errorMessage ? 'not-allowed' : 'pointer' }"
+    *ngIf="board.length"
+    class="btn btn-success"
+    routerLink="/tic-tac-toe"
+  >
+    PLAY GAME
+  </button>
+</div>
