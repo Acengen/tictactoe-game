@@ -8,4 +8,39 @@ a {
 
 .active {
   border-bottom: 5px solid rgb(46, 101, 219);
+  border-radius: 5px;
+}
+
+.nav {
+  background-color: white;
+  box-shadow: 3px 3px 5px rgb(211, 211, 211);
+}
+
+.nav-img {
+  width: 100px;
+  padding: 20px;
+}
+a:hover {
+  color: gray;
+  border-bottom: 5px solid rgba(46, 101, 219, 0.322);
+}
+
+@media (max-width: 420px) {
+  a {
+    font-size: 18px;
+  }
+  .nav-img {
+    display: none;
+  }
+  .active {
+    border-bottom: unset;
+    border: 4px solid rgb(46, 101, 219);
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  a {
+    font-size: 12px;
+  }
 }

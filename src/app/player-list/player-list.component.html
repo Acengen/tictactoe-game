@@ -4,18 +4,8 @@
   class="errorMsgLink text-center bg-warning my-3"
   ><i class="fa fa-warning"></i> {{ errorMessage }}</a
 >
-<div class="text-center my-3">
-  <button
-    [ngStyle]="{ cursor: errorMessage ? 'not-allowed' : 'pointer' }"
-    class="btn btn-success"
-    (click)="addBoard()"
-    [disabled]="playersAdd.length <= 1 || errorMessage"
-  >
-    Add Board
-  </button>
-</div>
 
-<table class="table" *ngIf="board.length">
+<table class="table" *ngIf="!errorMessage">
   <thead>
     <tr>
       <th scope="col">Player added to the game board</th>
@@ -28,14 +18,27 @@
       <td>#</td>
       <td>{{ pl.name }}</td>
       <td>#{{ pl.id }}</td>
+      <button
+        (click)="removePlayerFromBoardList(i)"
+        class="btn btn-danger text-ligh leaveroom"
+      >
+        leave room
+      </button>
     </tr>
+    <div *ngIf="playersAdd.length <= 0">
+      <span
+        style="text-decoration: underline; cursor: pointer;"
+        routerLink="/create-player"
+        >empty - add players</span
+      >
+    </div>
   </tbody>
 </table>
 
 <div class="text-center my-3">
   <button
     [ngStyle]="{ cursor: errorMessage ? 'not-allowed' : 'pointer' }"
-    *ngIf="board.length"
+    [disabled]="playersAdd.length < 2"
     class="btn btn-success"
     routerLink="/tic-tac-toe"
   >

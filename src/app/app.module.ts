@@ -10,12 +10,21 @@ import { PlayerListComponent } from './player-list/player-list.component';
 import { TictactoeComponent } from './tictactoe/tictactoe.component';
 import { TicService } from './tictactoe.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TicTacToeGuard } from './guards/tictactoeGuard.guard';
+import { LoadingPageComponent } from './loading-page/loading-page.component';
 
+/*
+ * Redirect a path("") to (/create-player) whenever you visit a home page of an application.
+ */
 const appRoute: Routes = [
   { path: '', redirectTo: '/create-player', pathMatch: 'full' },
   { path: 'create-player', component: CreatePlayerComponent },
   { path: 'player-list', component: PlayerListComponent },
-  { path: 'tic-tac-toe', component: TictactoeComponent },
+  {
+    path: 'tic-tac-toe',
+    component: TictactoeComponent,
+    canActivate: [TicTacToeGuard],
+  },
 ];
 @NgModule({
   declarations: [
@@ -24,6 +33,7 @@ const appRoute: Routes = [
     PlayerListComponent,
     TictactoeComponent,
     NavbarComponent,
+    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,7 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute),
     HttpClientModule,
   ],
-  providers: [TicService],
+  providers: [TicService, TicTacToeGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

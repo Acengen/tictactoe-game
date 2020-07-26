@@ -6,8 +6,20 @@ form {
 }
 
 .link-to-player-board {
-  background-color: #eeeeee;
+  border-bottom: 5px solid rgb(0, 132, 255);
   padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.link-to-player-board:hover {
+  border-bottom: 10px solid rgb(0, 132, 255);
+  color: gray;
+}
+.reqister {
+  background-color: rgb(0, 132, 255);
+  color: white;
 }
 
 .player-added {
@@ -15,11 +27,14 @@ form {
   left: 0;
   bottom: 0;
   padding: 20px;
-  background-color: rgb(136, 136, 136);
 }
 
 .player-added p {
   padding: 10px;
   margin-bottom: 0px;
-  color: white;
+  color: black;
+}
+
+button:hover {
+  background-color: grey;
 }

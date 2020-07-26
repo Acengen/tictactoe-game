@@ -1,6 +1,5 @@
-<div class="py-3 tictoc">
-  <app-navbar></app-navbar>
-</div>
+<app-loading-page *ngIf="loading"></app-loading-page>
+<app-navbar></app-navbar>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

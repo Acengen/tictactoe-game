@@ -1,8 +1,40 @@
+<div class="overlay" *ngIf="playerXwinner">
+  <div class="winnerplayer">
+    <p>{{ players[0].name }} IS A WINNER!</p>
+    <div class="text-center my-3">
+      <button class="btn btn-danger" (click)="resetGame()">reset</button>
+    </div>
+  </div>
+</div>
+<div class="overlay" *ngIf="playerOwinner">
+  <div class="winnerplayer">
+    <p>{{ players[1].name }} IS A WINNER!</p>
+    <div class="text-center my-3">
+      <button class="btn btn-danger" (click)="resetGame()">reset</button>
+    </div>
+  </div>
+</div>
+<div class="overlay" *ngIf="!gameActive">
+  <div class="winnerplayer">
+    <p>IT'S A DRAW!</p>
+    <div class="text-center my-3">
+      <button class="btn btn-danger" (click)="resetGame()">reset</button>
+    </div>
+  </div>
+</div>
 <div class="players" *ngIf="players.length">
-  <button class="btn" [ngClass]="{ activeplayer: activeply }">
+  <button
+    class="btn text-center"
+    [ngStyle]="{ color: playerXwinner ? 'red' : 'black' }"
+    [ngClass]="{ activeplayer: activeply }"
+  >
     <span>X</span> {{ players[0].name }}
   </button>
-  <button class="btn" [ngClass]="{ activeplayer: !activeply }">
+  <button
+    class="btn text-center"
+    [ngClass]="{ activeplayer: !activeply }"
+    [ngStyle]="{ color: playerOwinner ? 'red' : 'black' }"
+  >
     <span>O</span> {{ players[1].name }}
   </button>
 </div>
@@ -15,17 +47,11 @@
     {{ cell }}
   </div>
 </div>
-
 <div class="text-center my-3">
   <button class="btn btn-danger" (click)="resetGame()">reset</button>
 </div>
-
 <div class="text-center my-3">
-  <button
-    *ngIf="!players.length"
-    class="btn btn-warning"
-    routerLink="/create-player"
-  >
-    register players
+  <button class="btn btn-primary" routerLink="/player-list">
+    player list
   </button>
 </div>

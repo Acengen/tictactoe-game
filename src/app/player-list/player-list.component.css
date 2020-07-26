@@ -6,3 +6,15 @@
   font-weight: bold;
   padding: 10px;
 }
+
+@media (max-width: 380px) {
+  table {
+    font-size: 12px;
+  }
+  button {
+    font-size: 13px;
+  }
+  .errorMsgLink {
+    font-size: 12px;
+  }
+}
