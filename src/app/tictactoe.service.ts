@@ -173,7 +173,7 @@ export class TicService {
     this.playerOwinner = false;
     /*
      * I have created activeply boolean for handling clicks and to add class on html element - with border-bottom when every player change.
-     * In this function I put activeply to be true, because when I hit the reset button to start on the first player and add class with border-bottom.
+     * In this function I put activeply to be true, because when I hit the reset button it will start on a first player and add class with border-bottom.
      */
     this.activeply = true;
     this.gameActive = true;
